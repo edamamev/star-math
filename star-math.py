@@ -23,6 +23,7 @@ COLOUR_G = (255, 244, 234)
 COLOUR_K = (255, 210, 161)
 COLOUR_M = (255, 204, 111)
 
+
 def get_star_luminosity(star_mass: float):
     """
     Returns a Star's Luminosity in Solar Luminosities.
@@ -35,6 +36,7 @@ def get_star_luminosity(star_mass: float):
     else:
         return 1.4 * pow(star_mass, 3.5)
 
+
 def get_star_luminosity_2(star_radius: float, star_temperature: float):
     """
     Returns a Star's Luminosity in Solar Luminosities.
@@ -43,6 +45,7 @@ def get_star_luminosity_2(star_radius: float, star_temperature: float):
     """
     return pow(star_radius, 2) * pow(star_temperature / SUN_TEMPERATURE, 4)
 
+
 def get_maximum_star_age(star_mass: float, star_luminosity: float):
     """
     Returns a Star's Maximum Life in Billions of Years.
@@ -50,6 +53,7 @@ def get_maximum_star_age(star_mass: float, star_luminosity: float):
     Luminosities
     """
     return 10 * (star_mass / star_luminosity)
+
 
 def get_star_radius(star_mass: float):
     """
@@ -61,11 +65,13 @@ def get_star_radius(star_mass: float):
     else:
         return pow(star_mass, 0.57)
 
+
 def get_star_density(star_mass: float, star_radius: float):
     """
     Returns a Star's Density in Solar Density's
     """
     return star_mass / pow(star_radius, 2)
+
 
 def get_star_temperature(star_luminosity: float, star_radius: float):
     """
@@ -74,6 +80,7 @@ def get_star_temperature(star_luminosity: float, star_radius: float):
     Solar Radii
     """
     return 5776 * pow((star_luminosity / pow(star_radius, 2)), 0.25)
+
 
 def get_star_colour(star_temperature: float):
     """
@@ -122,12 +129,14 @@ def get_star_colour(star_temperature: float):
     colour_2 = colour_min[2] + int((colour_max[2] - colour_min[2]) * temp_ratio)
     return (colour_0, colour_1, colour_2)
 
+
 def get_star_habitable_zone(star_luminosity: float):
     """
     Returns a Star's Habitable Zone in Astronomic Units.
     Requires the Star's Luminosity in Solar Luminosities.
     """
     return (pow(star_luminosity / 1.1, 0.5),pow(star_luminosity / 0.53, 0.5))
+
 
 def get_star_life_possibility(star_mass: float, star_current_age: float):
     """
@@ -143,12 +152,14 @@ def get_star_life_possibility(star_mass: float, star_current_age: float):
     else:
         return "Life Not Possible"
 
+
 def get_star_luminosity_in_petawatts(star_luminosity):
     """
     Returns a Star's Luminosity in Petawatts.
     Requires the Star's Luminosity in Solar Luminosities.
     """
     return star_luminosity * SOLAR_LUMINOSITY
+
 
 def get_star_absolute_magnitude(star_luminosity: float):
     """
@@ -159,6 +170,7 @@ def get_star_absolute_magnitude(star_luminosity: float):
         get_star_luminosity_in_petawatts(star_luminosity), \
         ZERO_POINT_LUMINOSITY
         )
+
 
 def get_star_apparent_magnitude( \
         star_absolute_magnitude: float, \
